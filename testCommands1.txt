@@ -1,0 +1,22 @@
+READ 1 // input to c(1)
+LOAD 1 // c(0) ← c(1)
+JGTZ else // if c(0) > 0, else
+WRITE = 0 // output of 0
+JUMP halt // jump to end
+else: LOAD 1 // c(0) ← c(1)
+STORE 2 // c(2) ← c(0)
+LOAD 1 // c(0) ← c(1)
+SUB = 1 // c(0) ← c(0) − 1
+STORE 3 // c(3) ← c(0)
+while: LOAD 3 // c(0) ← c(3)
+JGTZ body // if c(0) > 0, body
+JUMP done // jump to end
+body: LOAD 2 // c(0) ← c(2)
+MULT 1 // c(0) ← c(0) ∗ c(1)
+STORE 2 // c(2) ← c(0)
+LOAD 3 // c(0) ← c(3)
+SUB = 1 // c(0) ← c(0) − 1
+STORE 3 // c(3) ← c(0)
+JUMP while // continue
+done: WRITE 2 // output of c(2)
+halt: HALT // end of computation
